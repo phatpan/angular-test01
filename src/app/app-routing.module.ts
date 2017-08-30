@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
     {path: 'addItems', component: AdditemsComponent},
+    {path: 'editItems/:id', component: AdditemsComponent},
     {path: '', component: HomeComponent},
     {path: '**', redirectTo: '/', pathMatch: 'full'}
 ];

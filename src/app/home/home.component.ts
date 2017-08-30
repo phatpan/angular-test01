@@ -20,7 +20,12 @@ export class HomeComponent implements OnInit {
   addItem(){
     this.router.navigate(['addItems']);
   }
+
   deleteEmployee(data: any){
    this.employeeList.remove(data.$key);
+  }
+
+  editEmployee(data: any){
+    this.router.navigate(['/editItems', data.$key]);
   }
 }

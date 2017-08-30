@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {AngularFireDatabase, FirebaseListObservable} from 'angularfire4/database'
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-additems',
@@ -9,11 +9,20 @@ import {Router} from '@angular/router';
   styleUrls: ['./additems.component.css']
 })
 export class AdditemsComponent implements OnInit {
-
+  title = ""; 
   items: FirebaseListObservable<any[]>;
-  constructor(private db:AngularFireDatabase, private router: Router) { }
+
+  constructor(
+    private db:AngularFireDatabase, 
+    private router: Router, 
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    let id = this.route.snapshot.paramMap.get("id");
+    this.title = "Add employee";
+    if(id){
+      this.title = "Edit employee";
+    }
   }
 
   saveItems(data: NgForm){

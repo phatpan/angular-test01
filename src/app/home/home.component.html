@@ -12,7 +12,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let data of employeeList | async">
-            <td></td>
+            <td><button type="button" (click)="editEmployee(data)">Edit</button></td>
             <td><button type="button" (click)="deleteEmployee(data)">Delete</button></td>
             <td>{{data.firstname}}</td>
             <td>{{data.lastname}}</td>
