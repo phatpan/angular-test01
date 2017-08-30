@@ -1,3 +1,11 @@
-<p>
-  additems works!
-</p>
+<button type="button" routerLink="/"> Back to home </button>
+
+<h2>Add New Item</h2>
+<form  (ngSubmit)="saveItems(itemForm)" #itemForm="ngForm">
+  <div>
+      Firstname : <input type="text" name="firstname" id="firstname" ngModel required>
+      Lastname : <input type="text" name="lastname" id="lastname" ngModel required>
+      Nickname : <input type="text" name="nickname" id="nickname" ngModel>
+  </div><br>
+  <button type="submit" >Submit</button>
+</form>

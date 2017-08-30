@@ -1,7 +1,22 @@
 <button type="button" name="add" id="add" (click)="addItem()"> Add Item </button>
 <hr/>
-<ul>
-    <li class="text" *ngFor="let item of items | async">
-        <h2>{{item.$value}}</h2>
-    </li>
-</ul>
+<table border="1">
+    <thead>
+        <tr>
+            <td>Edit</td>
+            <td>Delete</td>
+            <td>Firstname</td>
+            <td>Lastname</td>
+            <td>Nickname</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of employeeList | async">
+            <td></td>
+            <td><button type="button" (click)="deleteEmployee(data)">Delete</button></td>
+            <td>{{data.firstname}}</td>
+            <td>{{data.lastname}}</td>
+            <td>{{data.nickname}}</td>
+        </tr>
+    </tbody>
+</table>

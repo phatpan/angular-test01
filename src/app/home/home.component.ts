@@ -12,12 +12,15 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  items: FirebaseListObservable<any[]>;
+  employeeList: FirebaseListObservable<any[]>;
   constructor(private db:AngularFireDatabase, private router: Router){
-    this.items = db.list('/items');
+    this.employeeList = db.list('/employees');
   }
 
   addItem(){
     this.router.navigate(['addItems']);
+  }
+  deleteEmployee(data: any){
+   this.employeeList.remove(data.$key);
   }
 }
