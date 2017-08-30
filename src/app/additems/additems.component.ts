@@ -18,20 +18,18 @@ export class AdditemsComponent implements OnInit {
   constructor(
     private db:AngularFireDatabase, 
     private router: Router, 
-    private route: ActivatedRoute) {
-      this.id = this.route.snapshot.paramMap.get("id");
-      this.title = "Add employee";
-      if(this.id){
-        this.title = "Edit employee";
-        this.employee = this.db.object('employees/'+ this.id,{ preserveSnapshot: true });
-        this.employee.subscribe(snapshot =>{
-          this.item = snapshot.val();
-        });
-      }
-     }
+    private route: ActivatedRoute) {}
 
   ngOnInit() {
-    
+    this.id = this.route.snapshot.paramMap.get("id");
+    this.title = "Add employee";
+    if(this.id){
+      this.title = "Edit employee";
+      this.employee = this.db.object('employees/'+ this.id,{ preserveSnapshot: true });
+      this.employee.subscribe(snapshot =>{
+        this.item = snapshot.val();
+      });
+    }
   }
 
   saveItems(data: NgForm){
