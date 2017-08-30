@@ -1,0 +1,7 @@
+<button type="button" name="add" id="add" (click)="addItem()"> Add Item </button>
+<hr/>
+<ul>
+    <li class="text" *ngFor="let item of items | async">
+        <h2>{{item.$value}}</h2>
+    </li>
+</ul>
